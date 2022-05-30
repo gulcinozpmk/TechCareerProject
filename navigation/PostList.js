@@ -1,10 +1,34 @@
 import { View, Text } from 'react-native'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { FlatList } from 'react-native-gesture-handler';
+import { API_URL_POSTS } from '../env/Posts';
 
 const PostList = () => {
+
+    const [posts, setPosts] = useState([]);
+
+    useEffect(() => {
+        fetch(API_URL_POSTS)
+        .then(res => res.json())
+        .then((data) => {
+            setPosts(data);
+        })
+    }, [])
+    
+    const renderPost = ({item}) => {
+        return <Text> 
+            Title: {item.title}
+        </Text>
+    }
+
   return (
     <View>
-      <Text>PostList</Text>
+        <FlatList
+        data={posts}
+        renderItem={renderPost}
+        >
+
+        </FlatList>
     </View>
   )
 }
