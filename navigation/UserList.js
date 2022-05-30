@@ -1,14 +1,14 @@
-import { View, Text } from 'react-native'
+import { View, Text, Pressable } from 'react-native'
 import React, { useEffect, useState } from 'react'
-import { API_URL } from '../env/config';
 import { FlatList } from 'react-native-gesture-handler';
+import { API_URL_USERS } from '../env/Users';
 
-const UserList = () => {
+const UserList = ({ navigation }) => {
 
     const [users, setUsers] = useState([]);
 
     useEffect(() => {
-        fetch(API_URL + "users")
+        fetch(API_URL_USERS)
         .then(res => res.json())
         .then((data) => {
             setUsers(data);
@@ -16,9 +16,9 @@ const UserList = () => {
     }, [])
     
     const renderUser = ({item}) => {
-        return <Text> 
-            name: {item.name}             
-        </Text>
+        return <Pressable onPress={()=> navigation.navigate("User Detail", {id: item.id})}> 
+            <Text> name: {item.name} </Text>
+        </Pressable>
     }
 
   return (
