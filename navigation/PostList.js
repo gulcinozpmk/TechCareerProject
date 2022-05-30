@@ -8,7 +8,8 @@ const PostList = () => {
     const [posts, setPosts] = useState([]);
 
     useEffect(() => {
-        fetch(API_URL_POSTS)
+        //fetch(API_URL_POSTS)
+        fetch(API_URL_POSTS + "?_limit=20") // API dan sadece 20 tane veri listeleme.
         .then(res => res.json())
         .then((data) => {
             setPosts(data);
@@ -24,10 +25,11 @@ const PostList = () => {
   return (
     <View>
         <FlatList
+        //data={posts.filter((post, id)=>id<20)} //filter yöntemi ile 20 tane veri listeleme.
+        //data={posts.slice(0,20)} //slice yöntemi ile 20 tane veri listeleme.
         data={posts}
         renderItem={renderPost}
         >
-
         </FlatList>
     </View>
   )
