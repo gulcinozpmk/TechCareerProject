@@ -1,4 +1,4 @@
-import { View, Text } from 'react-native'
+import { View, Text, StyleSheet } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import { API_URL_USERS } from '../env/Users';
 
@@ -19,13 +19,23 @@ const UserListDetail = ({ route }) => {
   return (
       <>
     {
-        <Text> 
-          id: {users.id}   name: {users.name}   email: {users.email}
-         </Text>
+      <View flex={1}>
+        <Text style={styles.input}> Id: {users.id}</Text>
+        <Text style={styles.input}> Name: {users.name}</Text>
+        <Text style={styles.input}> User Name: {users.username}</Text>         
+      </View>
     }
 
     </>
   )
 }
+const styles = StyleSheet.create({
+  input: {
+      marginTop: 10,
+      fontSize: 15,
+      color: "#0000ff",
+      fontWeight: "bold"
+  }
+  });
 
 export default UserListDetail

@@ -1,4 +1,4 @@
-import { View, Text, Pressable } from 'react-native'
+import { View, Text, Pressable, StyleSheet } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import { FlatList } from 'react-native-gesture-handler';
 import { API_URL_USERS } from '../env/Users';
@@ -17,7 +17,7 @@ const UserList = ({ navigation }) => {
     
     const renderUser = ({item}) => {
         return <Pressable onPress={()=> navigation.navigate("User Detail", {id: item.id})}> 
-            <Text> name: {item.name} </Text>
+            <Text style={styles.input}> Name: {item.name} </Text>
         </Pressable>
     }
 
@@ -32,5 +32,13 @@ const UserList = ({ navigation }) => {
     </View>
   )
 }
+const styles = StyleSheet.create({
+    input: {
+        flex:1,
+        marginTop: 10,
+        fontSize: 15,
+        fontWeight: "bold"
+    }
+    });
 
 export default UserList
