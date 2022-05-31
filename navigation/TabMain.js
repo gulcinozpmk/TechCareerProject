@@ -6,6 +6,7 @@ import Icon from 'react-native-vector-icons/dist/FontAwesome';
 import UserList from './UserList';
 import PostList from './PostList';
 import UserStack from './UserStack';
+import PostStack from './PostStack';
 
 
 const Tab = createBottomTabNavigator();
@@ -16,13 +17,13 @@ const tabs = () => {
         <Tab.Navigator>
             <Tab.Screen name='User List' component={UserStack}
             options={{
-                tabBarIcon:()=>(<Icon name='user' size={36}/>)
+                tabBarIcon:()=>(<Icon name='user' size={32}/>)
             }}>
             </Tab.Screen>
 
-            <Tab.Screen name='Post List' component={PostList}
+            <Tab.Screen name='Post List' component={PostStack}
             options={{
-                tabBarIcon:()=>(<Icon name='check' size={36}/>)
+                tabBarIcon:()=>(<Icon name='check' size={32}/>)
             }}>
             </Tab.Screen>
 

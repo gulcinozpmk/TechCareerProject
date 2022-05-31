@@ -1,9 +1,10 @@
-import { View, Text } from 'react-native'
+import { View, Text, StyleSheet } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import { FlatList } from 'react-native-gesture-handler';
 import { API_URL_POSTS } from '../env/Posts';
+import Pressable from 'react-native/Libraries/Components/Pressable/Pressable';
 
-const PostList = () => {
+const PostList = ({ navigation }) => {
 
     const [posts, setPosts] = useState([]);
 
@@ -17,9 +18,11 @@ const PostList = () => {
     }, [])
     
     const renderPost = ({item}) => {
-        return <Text> 
+        return <Pressable onPress = {()=> navigation.navigate("Post Detail", {id:item.id})}>
+        <Text style={styles.input}> 
             Title: {item.title}
         </Text>
+        </Pressable>
     }
 
   return (
@@ -34,5 +37,13 @@ const PostList = () => {
     </View>
   )
 }
+const styles = StyleSheet.create({
+    input: {
+        flex:1,
+        marginTop: 10,
+        fontSize: 15,
+        fontWeight: "bold"
+    }
+});
 
 export default PostList
