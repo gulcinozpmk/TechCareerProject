@@ -1,6 +1,6 @@
 import { View, Text, StyleSheet } from 'react-native'
 import React, { useEffect, useState } from 'react'
-import { API_URL_POSTS } from '../env/Posts';
+import { API_URL_POSTS } from '../../env/Posts';
 
 const PostListDetail = ({ route }) => {
 

@@ -1,7 +1,7 @@
 import { View, Text, Pressable, StyleSheet } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import { FlatList } from 'react-native-gesture-handler';
-import { API_URL_USERS } from '../env/Users';
+import { API_URL_USERS } from '../../env/Users';
 
 const UserList = ({ navigation }) => {
 

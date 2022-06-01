@@ -3,10 +3,10 @@ import React from 'react'
 import { NavigationContainer } from '@react-navigation/native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/dist/FontAwesome';
-import UserList from './UserList';
-import PostList from './PostList';
-import UserStack from './UserStack';
-import PostStack from './PostStack';
+import UserList from '../screens/UserList';
+import PostList from '../screens/PostList';
+import UserStack from '../screens/UserStack';
+import PostStack from '../screens/PostStack';
 
 
 const Tab = createBottomTabNavigator();
