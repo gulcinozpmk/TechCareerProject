@@ -1,8 +1,8 @@
 import { View, Text, StyleSheet } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import { FlatList } from 'react-native-gesture-handler';
-import { API_URL_POSTS } from '../env/Posts';
 import Pressable from 'react-native/Libraries/Components/Pressable/Pressable';
+import { API_URL_POSTS } from '../../env/Posts';
 
 const PostList = ({ navigation }) => {
 
